@@ -1,0 +1,12 @@
+<div class="container">
+  <mat-card>
+    <mat-card-header>
+      <mat-card-title>{{ meta.title | titlecase }}</mat-card-title>
+      <mat-card-subtitle>{{ meta.date | date }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-chip-list aria-label="Blog Post Categories">
+      <mat-chip *ngFor="let tag of meta.tags">{{ tag }}</mat-chip>
+    </mat-chip-list>
+    <mat-card-content [innerHTML]="content"> </mat-card-content>
+  </mat-card>
+</div>

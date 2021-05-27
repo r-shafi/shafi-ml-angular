@@ -1,0 +1,19 @@
+.works {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  .work {
+    border: 1px solid red;
+    padding: 0.5rem;
+    .header {
+      display: flex;
+      align-items: center;
+      img {
+        display: block;
+        max-width: 3rem;
+        max-height: 3rem;
+        margin: 0 1rem 0.5rem 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "shafi-ml-fecc6": {
+      "hosting": {
+        "shafi": [
+          "shafi-ml-fecc6"
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,95 @@
+<mat-tab-group>
+  <mat-tab label="Create Post">
+    <form [formGroup]="blog" (ngSubmit)="post()" autocomplete="off">
+      <mat-form-field>
+        <mat-label>Title</mat-label>
+        <input
+          required
+          matInput
+          placeholder="JavaScript is the Best Programming Language"
+          formControlName="title"
+          (keyup)="createSlug()"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description</mat-label>
+        <input
+          required
+          matInput
+          placeholder="Description of Post"
+          formControlName="description"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Slug</mat-label>
+        <input
+          required
+          matInput
+          placeholder="your-title-joined-by-hyphens"
+          formControlName="slug"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Tags</mat-label>
+        <input
+          required
+          matInput
+          placeholder="blog, javascript, html, react"
+          formControlName="tags"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Post Content</mat-label>
+        <textarea
+          required
+          matInput
+          placeholder="Main Post Content"
+          [formControl]="postContent"
+        ></textarea>
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </mat-tab>
+
+  <mat-tab label="Add Work">
+    <form [formGroup]="work" autocomplete="off" (ngSubmit)="saveWork()">
+      <mat-form-field>
+        <mat-label>Name of Website</mat-label>
+        <input
+          formControlName="name"
+          required
+          matInput
+          placeholder="Website Name"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Website URL</mat-label>
+        <input
+          formControlName="url"
+          required
+          matInput
+          placeholder="https://www.example.com"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Category of Works</mat-label>
+        <input
+          formControlName="category"
+          required
+          matInput
+          placeholder="CSS, JS, React"
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Description of Works</mat-label>
+        <input
+          formControlName="description"
+          required
+          matInput
+          placeholder="What this Project does..."
+        />
+      </mat-form-field>
+      <button mat-raised-button color="primary" type="submit">Create</button>
+    </form>
+  </mat-tab>
+</mat-tab-group>

@@ -1,6 +1,6 @@
 <mat-spinner *ngIf="!posts"></mat-spinner>
 
-<div>
+<div class="posts">
   <mat-card
     *ngFor="let post of posts"
     [routerLink]="['/blog', post.slug]"
@@ -16,7 +16,11 @@
       {{ post.description }}
     </mat-card-content>
     <mat-chip-list aria-label="Blog Post Categories">
-      <mat-chip *ngFor="let tag of post.tags">{{ tag }}</mat-chip>
+      <mat-chip
+        *ngFor="let tag of post.tags"
+        [routerLink]="['category', tag]"
+        >{{ tag }}</mat-chip
+      >
     </mat-chip-list>
 
     <!-- * Would act as a link {{ post.slug }} -->

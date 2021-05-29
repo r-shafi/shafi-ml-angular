@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+
 // Components
 import { HomeComponent } from './components/pages/home/home.component';
 import { ErrorComponent } from './components/pages/error/error.component';
@@ -36,6 +37,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { CategoryComponent } from './components/pages/category/category.component';
+import { BlogCategoryComponent } from './components/pages/blog-category/blog-category.component';
+import { HttpClientModule } from '@angular/common/http';
 
 // deps
 
@@ -53,6 +56,7 @@ import { CategoryComponent } from './components/pages/category/category.componen
     PostsComponent,
     AdminDashboardComponent,
     CategoryComponent,
+    BlogCategoryComponent,
   ],
   imports: [
     BrowserModule,
@@ -73,6 +77,7 @@ import { CategoryComponent } from './components/pages/category/category.componen
     ReactiveFormsModule,
     MatSnackBarModule,
     MatTabsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

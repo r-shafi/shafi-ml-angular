@@ -19,8 +19,9 @@
 // my styles from here
 
 .page-container {
-  // border: 1px solid teal;
-  // min-height: calc(90% - 4rem);
   padding: 2rem;
   min-height: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -22,7 +22,7 @@ export class AdminGuardGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    // return this.admin.access();
-    return true;
+    return this.admin.access();
+    // return true;
   }
 }

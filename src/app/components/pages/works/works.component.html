@@ -1,7 +1,12 @@
 <h1>My Works</h1>
 
 <div *ngIf="works" class="works">
-  <div *ngFor="let work of works" class="work">
+  <div
+    *ngFor="let work of works"
+    class="work"
+    (click)="newTab(work.url)"
+    tabindex="0"
+  >
     <div class="header">
       <img
         *ngIf="work.categories"
@@ -10,11 +15,14 @@
       />
       <h1>{{ work.name }}</h1>
     </div>
-    <p>{{ work.description }}</p>
+    <p class="description">{{ sum(work.description) }}</p>
     <mat-chip-list>
-      <mat-chip *ngFor="let category of work.categories">{{
-        category
-      }}</mat-chip>
+      <mat-chip
+        *ngFor="let category of work.categories"
+        [routerLink]="category"
+      >
+        {{ category }}
+      </mat-chip>
     </mat-chip-list>
   </div>
 </div>

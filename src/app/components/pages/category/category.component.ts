@@ -1,26 +1,41 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Work } from 'src/app/Models';
-import { FirebaseService } from 'src/app/services/firebase.service';
+
+import {
+  openInNewTab,
+  summarize,
+  extractCategory,
+  filterCategories,
+} from '../../utils/functions';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss'],
+  styleUrls: ['../works/works.component.scss'],
 })
 export class CategoryComponent implements OnInit {
-  constructor(private fb: FirebaseService, private router: Router) {}
+  constructor(private router: Router) {}
 
+  works: Work[] = [];
   specificWorks: Work[] = [];
+  category: string = '';
 
-  // TODO: use session storage to lighten some burden
+  sum = summarize;
+  newTab = openInNewTab;
 
   ngOnInit(): void {
-    const category = this.router.url.split('/works/')[1];
+    this.category = extractCategory(this.router.url);
+    this.works = JSON.parse(sessionStorage.getItem('works') || '[]');
+    this.specificWorks = this.works.filter((child) =>
+      filterCategories(child, 'categories', this.category)
+    );
 
-    this.fb.retrieveWorks().subscribe((data: any) => {
-      this.specificWorks = data.filter((child: any) =>
-        child.category.includes(category)
+    this.router.events.subscribe(() => {
+      this.category = extractCategory(this.router.url);
+      this.works = JSON.parse(sessionStorage.getItem('works') || '[]');
+      this.specificWorks = this.works.filter((child) =>
+        filterCategories(child, 'categories', this.category)
       );
     });
   }

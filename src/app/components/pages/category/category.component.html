@@ -1,5 +1,27 @@
-<div *ngIf="specificWorks">
-  <div *ngFor="let work of specificWorks">
-    <h1>{{ work.name }}</h1>
+<h1>Works with {{ category }}</h1>
+
+<div *ngIf="specificWorks" class="works">
+  <div
+    *ngFor="let work of specificWorks"
+    class="work"
+    (click)="newTab(work.url)"
+  >
+    <div class="header">
+      <img
+        *ngIf="work.categories"
+        [src]="'../../../../assets/' + work.categories[0] + '.svg'"
+        alt=""
+      />
+      <h1>{{ work.name }}</h1>
+    </div>
+    <p class="description">{{ sum(work.description) }}</p>
+    <mat-chip-list>
+      <mat-chip
+        *ngFor="let category of work.categories"
+        [routerLink]="['/works', category]"
+      >
+        {{ category }}
+      </mat-chip>
+    </mat-chip-list>
   </div>
 </div>

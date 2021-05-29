@@ -11,10 +11,12 @@ import { PostsComponent } from './components/pages/posts/posts.component';
 import { WorksComponent } from './components/pages/works/works.component';
 import { AdminGuardGuard } from './guards/admin-guard.guard';
 import { CategoryComponent } from './components/pages/category/category.component';
+import { BlogCategoryComponent } from './components/pages/blog-category/blog-category.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'blog', component: BlogComponent },
+  { path: 'blog/category/:category', component: BlogCategoryComponent },
   { path: 'blog/:slug', component: PostsComponent },
   { path: 'works', component: WorksComponent },
   { path: 'works/:category', component: CategoryComponent },

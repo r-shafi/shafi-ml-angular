@@ -25,7 +25,7 @@ export class AdminService {
           this.isAdmin = true;
           this.router.navigateByUrl('/dashboard');
         } else {
-          this.sb.open('Error in Name, Email or Password', 'Close', {
+          this.sb.open('Error in Name, Email or Password', undefined, {
             duration: 2000,
           });
         }

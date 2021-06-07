@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 // Components
 import { HomeComponent } from './components/pages/home/home.component';
@@ -16,6 +17,9 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { AboutComponent } from './components/pages/about/about.component';
 import { AdminComponent } from './components/pages/admin/admin.component';
 import { AdminDashboardComponent } from './components/pages/admin-dashboard/admin-dashboard.component';
+import { CategoryComponent } from './components/pages/category/category.component';
+import { BlogCategoryComponent } from './components/pages/blog-category/blog-category.component';
+
 // Firebase & Configs
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
@@ -36,10 +40,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatTabsModule } from '@angular/material/tabs';
-import { CategoryComponent } from './components/pages/category/category.component';
-import { BlogCategoryComponent } from './components/pages/blog-category/blog-category.component';
-import { HttpClientModule } from '@angular/common/http';
-
 // deps
 
 @NgModule({

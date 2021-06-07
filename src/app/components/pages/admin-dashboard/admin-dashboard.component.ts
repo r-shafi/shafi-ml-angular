@@ -27,7 +27,15 @@ export class AdminDashboardComponent implements OnInit {
 
   postContent = new FormControl('');
 
-  ngOnInit(): void {}
+  blogContent: any;
+  blogContentKeys: any;
+
+  ngOnInit(): void {
+    this.fb.blogDataForDeletion().subscribe((data) => {
+      this.blogContent = data;
+      this.blogContentKeys = Object.keys(this.blogContent);
+    });
+  }
 
   createSlug() {
     let { title } = this.blog.value;
@@ -81,5 +89,12 @@ export class AdminDashboardComponent implements OnInit {
     this.sb.open('New work added!', undefined, {
       duration: 2000,
     });
+  }
+
+  delete(key: string) {
+    // todo: add a mat-dialog confirmation
+
+    this.fb.deleteBlogPost(key);
+    this.fb.deletePostContent(this.blogContent[key].slug);
   }
 }

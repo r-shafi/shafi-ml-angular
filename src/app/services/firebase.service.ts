@@ -41,7 +41,19 @@ export class FirebaseService {
     this.db.list(`post-content/${slug}`).push(content);
   }
 
+  deletePostContent(slug: string) {
+    this.db.object(`post-content/${slug}`).remove();
+  }
+
   saveWork(work: any) {
     this.db.list('works').push(work);
+  }
+
+  blogDataForDeletion() {
+    return this.db.object('blog').valueChanges();
+  }
+
+  deleteBlogPost(key: string) {
+    this.db.list('blog').remove(key);
   }
 }

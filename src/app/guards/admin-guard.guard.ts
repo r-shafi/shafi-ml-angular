@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {
   ActivatedRouteSnapshot,
   CanActivate,
+  Router,
   RouterStateSnapshot,
   UrlTree,
 } from '@angular/router';
@@ -12,7 +13,7 @@ import { AdminService } from '../services/admin.service';
   providedIn: 'root',
 })
 export class AdminGuardGuard implements CanActivate {
-  constructor(private admin: AdminService) {}
+  constructor(private admin: AdminService, private router: Router) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,
@@ -22,7 +23,10 @@ export class AdminGuardGuard implements CanActivate {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
+    if (!this.admin.access()) {
+      this.router.navigateByUrl('/admin');
+    }
+
     return this.admin.access();
-    // return true;
   }
 }

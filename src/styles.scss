@@ -1,3 +1,7 @@
+@import "shafi.scss";
+@include mat-core();
+@include angular-material-theme($my-theme);
+
 * {
   margin: 0;
   padding: 0;
@@ -41,4 +45,14 @@ mat-card {
 
 [routerLink] {
   cursor: pointer;
+}
+
+.toolbar {
+  background-color: mat-color($mat-light-green, A400);
+  color: rgba($color: #000000, $alpha: 0.87);
+}
+
+.button {
+  background-color: mat-color($mat-light-green, A400);
+  color: rgba($color: #000000, $alpha: 0.87);
 }

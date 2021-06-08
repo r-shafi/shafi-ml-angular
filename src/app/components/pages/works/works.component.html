@@ -1,5 +1,7 @@
 <h1>My Works</h1>
 
+<mat-spinner *ngIf="!works"></mat-spinner>
+
 <div *ngIf="works" class="works">
   <div
     *ngFor="let work of works"

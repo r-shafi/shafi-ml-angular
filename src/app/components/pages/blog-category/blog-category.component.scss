@@ -1,0 +1,15 @@
+.posts {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  mat-card {
+    border: 2px solid transparent;
+    transition: 0.08s;
+    &:hover,
+    &:focus {
+      outline: none;
+      border-color: #d81b60;
+    }
+  }
+}

@@ -7,6 +7,6 @@
     <mat-chip-list aria-label="Blog Post Categories">
       <mat-chip *ngFor="let tag of meta.tags">{{ tag }}</mat-chip>
     </mat-chip-list>
-    <mat-card-content [innerHTML]="content"> </mat-card-content>
   </mat-card>
+  <div class="content" [innerHTML]="content"></div>
 </div>

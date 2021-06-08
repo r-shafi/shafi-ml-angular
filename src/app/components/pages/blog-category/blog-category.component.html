@@ -1,29 +1,23 @@
 <mat-spinner *ngIf="!exact"></mat-spinner>
 <div class="posts">
-  <div class="exact">
-    <mat-card
-      *ngFor="let post of exact"
-      [routerLink]="['/blog', post.slug]"
-      (click)="sendMeta(post)"
-    >
-      <mat-card-title>
-        {{ post.title | titlecase }}
-      </mat-card-title>
-      <mat-card-subtitle>
-        {{ post.date | date }}
-      </mat-card-subtitle>
-      <mat-card-content>
-        {{ post.description }}
-      </mat-card-content>
-      <mat-chip-list aria-label="Blog Post Categories">
-        <mat-chip
-          *ngFor="let tag of post.tags"
-          [routerLink]="['category', tag]"
-          >{{ tag }}</mat-chip
-        >
-      </mat-chip-list>
-
-      <!-- * Would act as a link {{ post.slug }} -->
-    </mat-card>
-  </div>
+  <mat-card
+    *ngFor="let post of exact"
+    [routerLink]="['/blog', post.slug]"
+    (click)="sendMeta(post)"
+  >
+    <mat-card-title>
+      {{ post.title | titlecase }}
+    </mat-card-title>
+    <mat-card-subtitle>
+      {{ post.date | date }}
+    </mat-card-subtitle>
+    <mat-card-content>
+      {{ post.description }}
+    </mat-card-content>
+    <mat-chip-list aria-label="Blog Post Categories">
+      <mat-chip *ngFor="let tag of post.tags" [routerLink]="['../', tag]">{{
+        tag
+      }}</mat-chip>
+    </mat-chip-list>
+  </mat-card>
 </div>

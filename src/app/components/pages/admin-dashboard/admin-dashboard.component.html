@@ -47,7 +47,7 @@
           [formControl]="postContent"
         ></textarea>
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Create</button>
+      <button mat-raised-button class="button" type="submit">Create</button>
     </form>
   </mat-tab>
 
@@ -89,7 +89,7 @@
           placeholder="What this Project does..."
         />
       </mat-form-field>
-      <button mat-raised-button color="primary" type="submit">Create</button>
+      <button mat-raised-button class="button" type="submit">Create</button>
     </form>
   </mat-tab>
 
@@ -102,7 +102,7 @@
             blogContent[key].date | date
           }}</mat-card-subtitle>
           <mat-card-actions>
-            <button mat-raised-button color="primary" (click)="delete(key)">
+            <button mat-raised-button class="button" (click)="delete(key)">
               Delete
             </button>
           </mat-card-actions>
